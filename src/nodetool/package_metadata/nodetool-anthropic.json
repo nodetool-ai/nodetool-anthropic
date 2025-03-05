@@ -1,0 +1,127 @@
+{
+  "name": "nodetool-anthropic",
+  "description": "Nodetool Anthropic nodes",
+  "version": "0.6.0",
+  "authors": [
+    "Matthias Georgi <matti.georgi@gmail.com>"
+  ],
+  "nodes": [
+    {
+      "title": "Claude",
+      "description": "Generate natural language responses using Claude AI models.\n    text, llm, chat, generation, anthropic\n\n    Use cases:\n    1. Generate creative writing based on prompts\n    2. Answer questions and provide explanations on various topics\n    3. Assist with tasks like summarization, translation, or code generation\n    4. Engage in multi-turn conversations with context retention\n    5. Analyze and describe images when provided as input",
+      "namespace": "anthropic.text",
+      "node_type": "anthropic.text.Claude",
+      "layout": "default",
+      "properties": [
+        {
+          "name": "model",
+          "type": {
+            "type": "enum",
+            "values": [
+              "claude-3-opus-20240229",
+              "claude-3-haiku-20240307",
+              "claude-3-5-sonnet-20240620"
+            ],
+            "type_name": "nodetool.metadata.types.AnthropicModel"
+          },
+          "default": "claude-3-5-sonnet-20240620",
+          "title": "Model"
+        },
+        {
+          "name": "system",
+          "type": {
+            "type": "str"
+          },
+          "default": "You are a friendly assistant.",
+          "title": "System"
+        },
+        {
+          "name": "prompt",
+          "type": {
+            "type": "str"
+          },
+          "default": "",
+          "title": "Prompt"
+        },
+        {
+          "name": "messages",
+          "type": {
+            "type": "list",
+            "type_args": [
+              {
+                "type": "message"
+              }
+            ]
+          },
+          "default": [],
+          "title": "Messages"
+        },
+        {
+          "name": "image",
+          "type": {
+            "type": "image"
+          },
+          "default": {},
+          "title": "Image"
+        },
+        {
+          "name": "max_tokens",
+          "type": {
+            "type": "int"
+          },
+          "default": 100,
+          "title": "Max Tokens",
+          "min": 1.0,
+          "max": 10000.0
+        },
+        {
+          "name": "temperature",
+          "type": {
+            "type": "float"
+          },
+          "default": 1.0,
+          "title": "Temperature",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "name": "top_k",
+          "type": {
+            "type": "int"
+          },
+          "default": 40,
+          "title": "Top K",
+          "min": 1.0,
+          "max": 2048.0
+        },
+        {
+          "name": "top_p",
+          "type": {
+            "type": "float"
+          },
+          "default": 1.0,
+          "title": "Top P",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "type": {
+            "type": "str"
+          },
+          "name": "output"
+        }
+      ],
+      "the_model_info": {},
+      "recommended_models": [],
+      "basic_fields": [
+        "model",
+        "system",
+        "prompt",
+        "image"
+      ],
+      "is_dynamic": false
+    }
+  ]
+}
