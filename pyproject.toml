@@ -11,6 +11,7 @@ authors = ["Matthias Georgi <matti.georgi@gmail.com>"]
 packages = [{ include = "nodetool", from = "src" }]
 package-mode = true
 include = ["src/nodetool/package-metadata/nodetool-anthropic.json"]
+repository = "https://github.com/nodetool-ai/nodetool-anthropic"
 
 [tool.poetry.dependencies]
 python = "^3.10"
